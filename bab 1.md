@@ -327,7 +327,7 @@ The second method is for the driver to start the device and ask it to give an in
 
 Interrupts are very important in operating systems, so let us examine the idea more closely. In Fig. 1-11(a) we see a three-step process for I/O. In step 1, the driver tells the controller what to do by writing into its device registers. The controller then starts the device. When the controller has finished reading or writing the number of bytes it has been told to transfer, it signals the interrupt controller chip using certain bus lines in step 2. If the interrupt controller is ready to accept the interrupt (which it may not be if it is busy handling a higher-priority one), it asserts a pin on the CPU chip telling it, in step 3. In step 4, the interrupt controller puts the number of the device on the bus so the CPU can read it and know which device has just finished (many devices may be running at the same time).
 
-
+![tahap input output device](file:///C:/Users/asus/Downloads/gambar%20sistem%20operasi/gamba10.JPG)
 
 Once the CPU has decided to take the interrupt, the program counter and PSW are typically then pushed onto the current stack and the CPU switched into kernel mode. The device number may be used as an index into part of memory to find the address of the interrupt handler for this device. This part of memory is called the interrupt vector. Once the interrupt handler (part of the driver for the interrupting device) has started, it removes the stacked program counter and PSW and saves them, then queries the device to learn its status. When the handler is all finished, it returns to the previously running user program to the first instruction that was not yet executed. These steps are shown in Fig. 1-11(b).
 
@@ -338,7 +338,7 @@ Interrupts can (and often do) happen at highly inconvenient moments, for example
 #### 1.3.5 Buses
 The organization of Fig. 1-6 was used on minicomputers for years and also on the original IBM PC. However, as processors and memories got faster, the ability of a single bus (and certainly the IBM PC bus) to handle all the traffic was strained to the breaking point. Something had to give. As a result, additional buses were added, both for faster I/O devices and for CPU-to-memory traffic. As a consequence of this evolution, a large x86 system currently looks something like Fig. 1-12.
 
-
+![struktur x86](file:///C:/Users/asus/Downloads/gambar%20sistem%20operasi/gambar11.JPG)
 
 This system has many buses (e.g., cache, memory, PCIe, PCI, USB, SATA, and DMI), each with a different transfer rate and function. The operating system must be aware of all of them for configuration and management. The main bus is the PCIe (Peripheral Component Interconnect Express) bus.
 
@@ -431,7 +431,7 @@ The key process-management system calls are those dealing with the creation and 
 
 If a process can create one or more other processes (referred to as child processes) and these processes in turn can create child processes, we quickly arrive at the process tree structure of Fig. 1-13. Related processes that are cooperating to get some job done often need to communicate with one another and synchronize their activities. This communication is called interprocess communication, and will be addressed in detail in Chap. 2.
 
-
+![tree proses](file:///C:/Users/asus/Downloads/gambar%20sistem%20operasi/gambar12.JPG)
 
 Other process system calls are available to request more memory (or release unused memory), wait for a child process to terminate, and overlay its program with a different one.
 
@@ -459,7 +459,7 @@ Another key concept supported by virtually all operating systems is the file sys
 
 To provide a place to keep files, most PC operating systems have the concept of a directory as a way of grouping files together. A student, for example, might have one directory for each course he is taking (for the programs needed for that course), another directory for his electronic mail, and still another directory for his World Wide Web home page. System calls are then needed to create and remove directories. Calls are also provided to put an existing file in a directory and to remove a file from a directory. Directory entries may be either files or other directories. This model also gives rise to a hierarchy—the file system—as shown in Fig. 1-14.
 
-
+![ilustrasi system untuk universitas](file:///C:/Users/asus/Downloads/gambar%20sistem%20operasi/gambar13.JPG)
 
 The process and file hierarchies both are organized as trees, but the similarity stops there. Process hierarchies usually are not very deep (more than three levels is unusual), whereas file hierarchies are commonly four, fiv e, or even more levels deep. Process hierarchies are typically short-lived, generally minutes at most, whereas the directory hierarchy may exist for years. Ownership and protection also differ for processes and files. Typically, only a parent process may control or even access a child process, but mechanisms nearly always exist to allow files and directories to be read by a wider group than just the owner.
 
@@ -473,13 +473,13 @@ Another important concept in UNIX is the mounted file system. Most desktop compu
 
 However, the file system on the CD-ROM cannot be used, because there is no way to specify path names on it. UNIX does not allow path names to be prefixed by a drive name or number; that would be precisely the kind of device dependence that operating systems ought to eliminate. Instead, the mount system call allows the file system on the CD-ROM to be attached to the root file system wherever the program wants it to be. In Fig. 1-15(b) the file system on the CD-ROM has been mounted on directory b, thus allowing access to files /b/x and /b/y. If directory b had contained any files they would not be accessible while the CD-ROM was mounted, since /b would refer to the root directory of the CD-ROM. (Not being able to access these files is not as serious as it at first seems: file systems are nearly always mounted on empty directories.) If a system contains multiple hard disks, they can all be mounted into a single tree as well.
 
-
+![cd rom](file:///C:/Users/asus/Downloads/gambar%20sistem%20operasi/gambar14.JPG)
 
 Another important concept in UNIX is the special file. Special files are provided in order to make I/O devices look like files. That way, they can be read and written using the same system calls as are used for reading and writing files. Two kinds of special files exist: block special files and character special files. Block special files are used to model devices that consist of a collection of randomly addressable blocks, such as disks. By opening a block special file and reading, say, block 4, a program can directly access the fourth block on the device, without regard to the structure of the file system contained on it. Similarly, character special files are used to model printers, modems, and other devices that accept or output a character stream. By convention, the special files are kept in the /dev directory. For example, /dev/lp might be the printer (once called the line printer).
 
 The last feature we will discuss in this overview relates to both processes and files: pipes. A pipe is a sort of pseudofile that can be used to connect two processes, as shown in Fig. 1-16. If processes A and B wish to talk using a pipe, they must set it up in advance. When process A wants to send data to process B, it writes on the pipe as though it were an output file. In fact, the implementation of a pipe is very much like that of a file. Process B can read the data by reading from the pipe as though it were an input file. Thus, communication between processes in UNIX looks very much like ordinary file reads and writes. Stronger yet, the only way a process can discover that the output file it is writing on is not really a file, but a pipe, is by making a special system call. File systems are very important. We will have much more to say about them in Chap. 4 and also in Chaps. 10 and 11.
 
-
+![](file:///C:/Users/asus/Downloads/gambar%20sistem%20operasi/gambar15.JPG)
 
 #### 1.5.4 Input/Output
 All computers have physical devices for acquiring input and producing output. After all, what good would a computer be if the users could not tell it what to do and could not get the results after it did the work requested? Many kinds of input and output devices exist, including keyboards, monitors, printers, and so on. It is up to the operating system to manage these devices.
@@ -584,7 +584,7 @@ C and C++ compilers push the parameters onto the stack in reverse order for hist
 
 The library procedure, possibly written in assembly language, typically puts the system-call number in a place where the operating system expects it, such as a register (step 5). Then it executes a TRAP instruction to switch from user mode to kernel mode and start execution at a fixed address within the kernel (step 6). The TRAP instruction is actually fairly similar to the procedure-call instruction in the sense that the instruction following it is taken from a distant location and the return address is saved on the stack for use later.
 
-
+![tahap membaca dan manggil (fd,buffer,nbytes)](file:///C:/Users/asus/Downloads/gambar%20sistem%20operasi/gambar16.JPG)
 
 Nevertheless, the TRAP instruction also differs from the procedure-call instruction in two fundamental ways. First, as a side effect, it switches into kernel mode. The procedure call instruction does not change the mode. Second, rather than giving a relative or absolute address where the procedure is located, the TRAP instruction cannot jump to an arbitrary address. Depending on the architecture, either it jumps to a single fixed location or there is an 8-bit field in the instruction giving the index into a table in memory containing jump addresses, or equivalent.
 
