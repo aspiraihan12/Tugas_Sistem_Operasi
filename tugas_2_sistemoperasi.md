@@ -213,4 +213,6 @@ Menurut Stallings, model tingkatan sistem operasi yang mengaplikasikan prinsip i
 
 
 
-
+<p>
+ <img src="file:///F:/Kuliah%20ULM/semester%203%20ulm/S3/SISTEM%20OPERASI/tabelso..png">
+</p>
