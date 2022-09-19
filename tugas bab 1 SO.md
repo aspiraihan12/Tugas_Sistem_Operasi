@@ -6,7 +6,7 @@ Most readers will have had some experience with an operating system such as Wind
 
 A simple overview of the main components under discussion here is given in Fig. 1-1. Here we see the hardware at the bottom. The hardware consists of chips, boards, disks, a keyboard, a monitor, and similar physical objects. On top of the hardware is the software. Most computers have two modes of operation: kernel mode and user mode. The operating system, the most fundamental piece of software, runs in kernel mode (also called supervisor mode). In this mode it has complete access to all the hardware and can execute any instruction the machine is capable of executing. The rest of the software runs in user mode, in which only a subset of the machine instructions is available. In particular, those instructions that affect control of the machine or do I/O )Input/Output" are forbidden to user-mode programs. We will come back to the difference between kernel mode and user mode repeatedly throughout this book. It plays a crucial role in how operating systems work.
 
-![gambar 1](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar_os1.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar_os1.JPG">
 
 
 The user interface program, shell or GUI, is the lowest level of user-mode software, and allows the user to start other programs, such as a Web browser, email reader, or music player. These programs, too, make heavy use of the operating system.
@@ -39,7 +39,7 @@ This abstraction is the key to managing all this complexity. Good abstractions t
 
 This point is so important that it is worth repeating in different words. With all due respect to the industrial engineers who so carefully designed the Macintosh, hardware is ugly. Real processors, memories, disks, and other devices are very complicated and present difficult, awkward, idiosyncratic, and inconsistent interfaces to the people who have to write software to use them. Sometimes this is due to the need for backward compatibility with older hardware. Other times it is an attempt to save money. Often, however, the hardware designers do not realize (or care) how much trouble they are causing for the software. One of the major tasks of the operating system is to hide the hardware and present programs (and their programmers) with nice, clean, elegant, consistent, abstractions to work with instead. Operating systems turn the ugly into the beautiful, as shown in Fig. 1-2.
 
-![gambar ui](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar%202.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar%202.JPG">
 
 t should be noted that the operating system’s real customers are the application programs (via the application programmers, of course). They are the ones who deal directly with the operating system and its abstractions. In contrast, end users deal with the abstractions provided by the user interface, either a command-line shell or a graphical interface. While the abstractions at the user interface may be similar to the ones provided by the operating system, this is not always the case. To make this point clearer, consider the normal Windows desktop and the line-oriented command prompt. Both are programs running on the Windows operating system and use the abstractions Windows provides, but they offer very different user interfaces. Similarly, a Linux user running Gnome or KDE sees a very different interface than a Linux user working directly on top of the underlying X Window System, but the underlying operating system abstractions are the same in both cases.
 
@@ -83,7 +83,7 @@ Given the high cost of the equipment, it is not surprising that people quickly l
 
 After about an hour of collecting a batch of jobs, the cards were read onto a magnetic tape, which was carried into the machine room, where it was mounted on a tape drive. The operator then loaded a special program (the ancestor of today’s operating system), which read the first job from tape and ran it. The output was written onto a second tape, instead of being printed. After each job finished, the operating system automatically read the next job from the tape and began running it.
 
-![gambar tape](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar%203.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar%203.JPG">
 
 When the whole batch was done, the operator removed the input and output tapes, replaced the input tape with the next batch, and brought the output tape to a 1401 for printing off line (i.e., not connected to the main computer).
 
@@ -94,7 +94,7 @@ Large second-generation computers were used mostly for scientific and engineerin
 #### 1.2.3 The Third Generation (1965-1980): ICs and Multiprogramming
 By the early 1960s, most computer manufacturers had two distinct, incompatible, product lines. On the one hand, there were the word-oriented, large-scale scientific computers, such as the 7094, which were used for industrial-strength numerical calculations in science and engineering. On the other hand, there were the character-oriented, commercial computers, such as the 1401, which were widely used for tape sorting and printing by banks and insurance companies.
 
-![gambar FMS job ](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar4.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar4.JPG">
 
 
 Developing and maintaining two completely different product lines was an expensive proposition for the manufacturers. In addition, many new computer customers initially needed a small machine but later outgrew it and wanted a bigger machine that would run all their old programs, but faster.
@@ -113,7 +113,7 @@ Despite its enormous size and problems, OS/360 and the similar third-generation 
 
 The solution that evolved was to partition memory into several pieces, with a different job in each partition, as shown in Fig. 1-5. While one job was waiting for I/O to complete, another job could be using the CPU. If enough jobs could be held in main memory at once, the CPU could be kept busy nearly 100% of the time. Having multiple jobs safely in memory at once requires special hardware to protect each job against snooping and mischief by the other ones, but the 360 and other third-generation systems were equipped with this hardware.
 
-![gambar partisi memori](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gabar5.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar5.JPG">
 
 
 Another major feature present in third-generation operating systems was the ability to read jobs from cards onto the disk as soon as they were brought to the computer room. Then, whenever a running job finished, the operating system could load a new job from the disk into the now-empty partition and run it. This technique is called spooling (from Simultaneous Peripheral Operation On Line) and was also used for output. With spooling, the 1401s were no longer needed, and much carrying of tapes disappeared.
@@ -207,7 +207,7 @@ An operating system is intimately tied to the hardware of the computer it runs o
 
 Conceptually, a simple personal computer can be abstracted to a model resembling that of Fig. 1-6. The CPU, memory, and I/O devices are all connected by a system bus and communicate with one another over it. Modern personal computers have a more complicated structure, involving multiple buses, which we will look at later. For the time being, this model will be sufficient. In the following sections, we will briefly review these components and examine some of the hardware issues that are of concern to operating system designers. Needless to say, this will be a very compact summary. Many books have been written on the subject of computer hardware and computer organization. Two well-known ones are by Tanenbaum and Austin (2012) and Patterson and Hennessy (2013).
 
-![gambar alur pc](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar6.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar6.JPG">
 
 ### 1.3.1 Processors
 The ‘‘brain’’ of the computer is the CPU. It fetches instructions from memory and executes them. The basic cycle of every CPU is to fetch the first instruction from memory, decode it to determine its type and operands, execute it, and then fetch, decode, and execute subsequent instructions. The cycle is repeated until the program finishes. In this way, programs are carried out.
@@ -225,7 +225,7 @@ The operating system must be fully aware of all the registers. When time multipl
 
 To improve performance, CPU designers have long abandoned the simple model of fetching, decoding, and executing one instruction at a time. Many modern CPUs have facilities for executing more than one instruction at the same time. For example, a CPU might have separate fetch, decode, and execute units, so that while it is executing instruction n, it could also be decoding instruction n + 1 and fetching instruction n + 2. Such an organization is called a pipeline and is illustrated in Fig. 1-7(a) for a pipeline with three stages. Longer pipelines are common. In most pipeline designs, once an instruction has been fetched into the pipeline, it must be executed, even if the preceding instruction was a conditional branch that was taken. Pipelines cause compiler writers and operating system writers great headaches because they expose the complexities of the underlying machine to them and they have to deal with them.
 
-![alur pc](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar6.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar6.JPG">
 
 Even more advanced than a pipeline design is a superscalar CPU, shown in Fig. 1-7(b). In this design, multiple execution units are present, for example, one for integer arithmetic, one for floating-point arithmetic, and one for Boolean operations. Two or more instructions are fetched at once, decoded, and dumped into a holding buffer until they can be executed. As soon as an execution unit becomes available, it looks in the holding buffer to see if there is an instruction it can handle, and if so, it removes the instruction from the buffer and executes it. An implication of this design is that program instructions are often executed out of order. For the most part, it is up to the hardware to make sure the result produced is the same one a sequential implementation would have produced, but an annoying amount of the complexity is foisted onto the operating system, as we shall see.
 
@@ -250,7 +250,7 @@ Beyond multithreading, many CPU chips now hav e four, eight, or more complete pr
 
 Incidentally, in terms of sheer numbers, nothing beats a modern GPU (Graphics Processing Unit). A GPU is a processor with, literally, thousands of tiny cores. They are very good for many small computations done in parallel, like rendering polygons in graphics applications. They are not so good at serial tasks. They are also hard to program. While GPUs can be useful for operating systems (e.g., encryption or processing of network traffic), it is not likely that much of the operating system itself will run on the GPUs.
 
-![Core](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar7.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar7.JPG">
 
 
 #### 1.3.2 Memory
@@ -258,7 +258,7 @@ The second major component in any computer is the memory. Ideally, a memory shou
 
 The top layer consists of the registers internal to the CPU. They are made of the same material as the CPU and are thus just as fast as the CPU. Consequently, there is no delay in accessing them. The storage capacity available in them is typically 32 × 32 bits on a 32-bit CPU and 64 × 64 bits on a 64-bit CPU. Less than 1 KB in both cases. Programs must manage the registers (i.e., decide what to keep in them) themselves, in software.
 
-![hirarki memori](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar9.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar9.JPG">
 
 Next comes the cache memory, which is mostly controlled by the hardware. Main memory is divided up into cache lines, typically 64 bytes, with addresses 0 to 63 in cache line 0, 64 to 127 in cache line 1, and so on. The most heavily used cache lines are kept in a high-speed cache located inside or very close to the CPU. When the program needs to read a memory word, the cache hardware checks to see if the line needed is in the cache. If it is, called a cache hit, the request is satisfied from the cache and no memory request is sent over the bus to the main memory. Cache hits normally take about two clock cycles. Cache misses have to go to memory, with a substantial time penalty. Cache memory is limited in size due to its high cost. Some machines have two or even three levels of cache, each one slower and bigger than the one before it.
 
@@ -290,7 +290,7 @@ Yet another kind of memory is CMOS, which is volatile. Many computers use CMOS m
 ### 1.3.3 Disk
 Next in the hierarchy is magnetic disk (hard disk). Disk storage is two orders of magnitude cheaper than RAM per bit and often two orders of magnitude larger as well. The only problem is that the time to randomly access data on it is close to three orders of magnitude slower. The reason is that a disk is a mechanical device, as shown in Fig. 1-10.
 
-![struktur memori](file:///C:/Users/asus/Downloads/gambar%20sistem%20operasi/gambar9.JPG)
+<img src="file:///C:/Users/asus/Downloads/gambar%20sistem%20operasi/gambar9.JPG">
 
 A disk consists of one or more metal platters that rotate at 5400, 7200, 10,800 RPM or more. A mechanical arm pivots over the platters from the corner, similar to the pickup arm on an old 33-RPM phonograph for playing vinyl records. Information is written onto the disk in a series of concentric circles. At any giv en arm position, each of the heads can read an annular region called a track. Together, all the tracks for a given arm position form a cylinder.
 
@@ -327,7 +327,7 @@ The second method is for the driver to start the device and ask it to give an in
 
 Interrupts are very important in operating systems, so let us examine the idea more closely. In Fig. 1-11(a) we see a three-step process for I/O. In step 1, the driver tells the controller what to do by writing into its device registers. The controller then starts the device. When the controller has finished reading or writing the number of bytes it has been told to transfer, it signals the interrupt controller chip using certain bus lines in step 2. If the interrupt controller is ready to accept the interrupt (which it may not be if it is busy handling a higher-priority one), it asserts a pin on the CPU chip telling it, in step 3. In step 4, the interrupt controller puts the number of the device on the bus so the CPU can read it and know which device has just finished (many devices may be running at the same time).
 
-![tahap input output device](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gamba10.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gamba10.JPG">
 
 Once the CPU has decided to take the interrupt, the program counter and PSW are typically then pushed onto the current stack and the CPU switched into kernel mode. The device number may be used as an index into part of memory to find the address of the interrupt handler for this device. This part of memory is called the interrupt vector. Once the interrupt handler (part of the driver for the interrupting device) has started, it removes the stacked program counter and PSW and saves them, then queries the device to learn its status. When the handler is all finished, it returns to the previously running user program to the first instruction that was not yet executed. These steps are shown in Fig. 1-11(b).
 
@@ -338,7 +338,7 @@ Interrupts can (and often do) happen at highly inconvenient moments, for example
 #### 1.3.5 Buses
 The organization of Fig. 1-6 was used on minicomputers for years and also on the original IBM PC. However, as processors and memories got faster, the ability of a single bus (and certainly the IBM PC bus) to handle all the traffic was strained to the breaking point. Something had to give. As a result, additional buses were added, both for faster I/O devices and for CPU-to-memory traffic. As a consequence of this evolution, a large x86 system currently looks something like Fig. 1-12.
 
-![struktur x86](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar11.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar11.JPG">
 
 This system has many buses (e.g., cache, memory, PCIe, PCI, USB, SATA, and DMI), each with a different transfer rate and function. The operating system must be aware of all of them for configuration and management. The main bus is the PCIe (Peripheral Component Interconnect Express) bus.
 
@@ -431,7 +431,7 @@ The key process-management system calls are those dealing with the creation and 
 
 If a process can create one or more other processes (referred to as child processes) and these processes in turn can create child processes, we quickly arrive at the process tree structure of Fig. 1-13. Related processes that are cooperating to get some job done often need to communicate with one another and synchronize their activities. This communication is called interprocess communication, and will be addressed in detail in Chap. 2.
 
-![tree proses](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar12.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar12.JPG">
 
 Other process system calls are available to request more memory (or release unused memory), wait for a child process to terminate, and overlay its program with a different one.
 
@@ -459,7 +459,7 @@ Another key concept supported by virtually all operating systems is the file sys
 
 To provide a place to keep files, most PC operating systems have the concept of a directory as a way of grouping files together. A student, for example, might have one directory for each course he is taking (for the programs needed for that course), another directory for his electronic mail, and still another directory for his World Wide Web home page. System calls are then needed to create and remove directories. Calls are also provided to put an existing file in a directory and to remove a file from a directory. Directory entries may be either files or other directories. This model also gives rise to a hierarchy—the file system—as shown in Fig. 1-14.
 
-![ilustrasi system untuk universitas](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar13.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar13.JPG">
 
 The process and file hierarchies both are organized as trees, but the similarity stops there. Process hierarchies usually are not very deep (more than three levels is unusual), whereas file hierarchies are commonly four, fiv e, or even more levels deep. Process hierarchies are typically short-lived, generally minutes at most, whereas the directory hierarchy may exist for years. Ownership and protection also differ for processes and files. Typically, only a parent process may control or even access a child process, but mechanisms nearly always exist to allow files and directories to be read by a wider group than just the owner.
 
@@ -473,13 +473,13 @@ Another important concept in UNIX is the mounted file system. Most desktop compu
 
 However, the file system on the CD-ROM cannot be used, because there is no way to specify path names on it. UNIX does not allow path names to be prefixed by a drive name or number; that would be precisely the kind of device dependence that operating systems ought to eliminate. Instead, the mount system call allows the file system on the CD-ROM to be attached to the root file system wherever the program wants it to be. In Fig. 1-15(b) the file system on the CD-ROM has been mounted on directory b, thus allowing access to files /b/x and /b/y. If directory b had contained any files they would not be accessible while the CD-ROM was mounted, since /b would refer to the root directory of the CD-ROM. (Not being able to access these files is not as serious as it at first seems: file systems are nearly always mounted on empty directories.) If a system contains multiple hard disks, they can all be mounted into a single tree as well.
 
-![cd rom](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar14.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar14.JPG">
 
 Another important concept in UNIX is the special file. Special files are provided in order to make I/O devices look like files. That way, they can be read and written using the same system calls as are used for reading and writing files. Two kinds of special files exist: block special files and character special files. Block special files are used to model devices that consist of a collection of randomly addressable blocks, such as disks. By opening a block special file and reading, say, block 4, a program can directly access the fourth block on the device, without regard to the structure of the file system contained on it. Similarly, character special files are used to model printers, modems, and other devices that accept or output a character stream. By convention, the special files are kept in the /dev directory. For example, /dev/lp might be the printer (once called the line printer).
 
 The last feature we will discuss in this overview relates to both processes and files: pipes. A pipe is a sort of pseudofile that can be used to connect two processes, as shown in Fig. 1-16. If processes A and B wish to talk using a pipe, they must set it up in advance. When process A wants to send data to process B, it writes on the pipe as though it were an output file. In fact, the implementation of a pipe is very much like that of a file. Process B can read the data by reading from the pipe as though it were an input file. Thus, communication between processes in UNIX looks very much like ordinary file reads and writes. Stronger yet, the only way a process can discover that the output file it is writing on is not really a file, but a pipe, is by making a special system call. File systems are very important. We will have much more to say about them in Chap. 4 and also in Chaps. 10 and 11.
 
-![](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar15.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar15.JPG">
 
 #### 1.5.4 Input/Output
 All computers have physical devices for acquiring input and producing output. After all, what good would a computer be if the users could not tell it what to do and could not get the results after it did the work requested? Many kinds of input and output devices exist, including keyboards, monitors, printers, and so on. It is up to the operating system to manage these devices.
@@ -584,7 +584,7 @@ C and C++ compilers push the parameters onto the stack in reverse order for hist
 
 The library procedure, possibly written in assembly language, typically puts the system-call number in a place where the operating system expects it, such as a register (step 5). Then it executes a TRAP instruction to switch from user mode to kernel mode and start execution at a fixed address within the kernel (step 6). The TRAP instruction is actually fairly similar to the procedure-call instruction in the sense that the instruction following it is taken from a distant location and the return address is saved on the stack for use later.
 
-![tahap membaca dan manggil (fd,buffer,nbytes)](https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar16.JPG)
+<img src="https://raw.githubusercontent.com/aspiraihan12/Tugas_Sistem_Operasi/main/gambar%20sistem%20operasi/gambar16.JPG">
 
 Nevertheless, the TRAP instruction also differs from the procedure-call instruction in two fundamental ways. First, as a side effect, it switches into kernel mode. The procedure call instruction does not change the mode. Second, rather than giving a relative or absolute address where the procedure is located, the TRAP instruction cannot jump to an arbitrary address. Depending on the architecture, either it jumps to a single fixed location or there is an 8-bit field in the instruction giving the index into a table in memory containing jump addresses, or equivalent.
 
