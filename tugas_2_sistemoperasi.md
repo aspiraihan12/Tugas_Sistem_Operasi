@@ -151,6 +151,26 @@ Dapat dikategorikan :
 <p>Membuat,menghapus,copy,rename,print,memanipulasi berkas dan direktori</p>
 <li>Informasi status</li>
 <p> Beberapa program meminta informasi tentang tanggal,jam,jumlah memori dan disk yang tersedia, jumlah pengguna dan informasi lain yang sejenis.
+<li>Modifikasi berkas</li>
+<p>membuat berkas dan memodifikasi isi berkas yang disimpan pada disk atau tape.</p>
+<li>Pendukung bahasa pemprograman</li>
+<p>kadang kala kompilator,*assembler* dan *interpreter* dari bahasa pemograman diberikan kepada pengguna dengan bantuan sistem operasi.</p>
+<ul>Loading dan eksekusi program</ul>
+<p>ketika program di *assembly* atau di *compile*,program tersebut harus di-load ke dalam memori untuk dieksekusi. Untuk itu sistem harus menyediakan *absolute loaders*,*relocatable loaders*,*linkage editors*, dan *overlay loaders*</p>
+<li>Komunikasi</li>
+<p>menyediakan mekanisme komunikasi antara proses, pengguna, dan sistem komputer yang berbeda. Sehingga pengguna bisa mengirim pesan, menelusuri halaman web, mengirim e-mail, atau mentransfer berkas.
 </ul>
 
+Umumnya sistem operasi dilengkapi oleh *system-utilities* atau program aplikasi yang di dalamnya termasuk web browser, word prosesor dan format teks, sistem database, games. System program yang paling penting adalah *Command interpreter*(mengambil dan menerjemahkan *user-specified command* selanjutnya).
+
+
+### Struktur Sistem
+
+sebuah sistem yang besar dan kompleks seperti sistem operasi modern harus diatur dengan cara membagi task kedalam komponen-komponen kecil agar dapat berfungsi dengan baik dan mudah dimodifikasi. Pada bab ini, kita akan membahas cara komponen-komponen ini di hubungkan satu sama lain. Menurut Avi Silberschatz,Peter Galvin, dan Greg Gagne, ada tiga cara yaitu :
+
+<ul>
+<li>Struktur Sederhana</li>
+<li>Pendekatan Terlapis</li>
+<li>Mikrokernel</li>
+</ul>
   
