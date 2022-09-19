@@ -146,9 +146,11 @@ Dalam *message-passing*, sebelum komunikasi dapat dilakukan harus dibangun dulu 
 *system program* menyediakan lingkungan yang memungkinkan pengembangan dan eksekusi berjalan dengan baik.
 
 Dapat dikategorikan :
-    + Manajemen/manipulasi Berkas
-        Membuat,menghapus,copy,rename,print,memanipulasi berkas dan direktori
-        
-    + Informasi status
-    
-        Beberapa program meminta informasi tentang tanggal,jam,jumlah memori dan disk yang tersedia, jumlah pengguna dan informasi lain yang sejenis.
+<ul>
+<li>Manajemen/manipulasi Berkas</li>
+<p>Membuat,menghapus,copy,rename,print,memanipulasi berkas dan direktori</p>
+<li>Informasi status</li>
+<p> Beberapa program meminta informasi tentang tanggal,jam,jumlah memori dan disk yang tersedia, jumlah pengguna dan informasi lain yang sejenis.
+</ul>
+
+  
