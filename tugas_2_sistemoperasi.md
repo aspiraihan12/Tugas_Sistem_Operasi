@@ -84,7 +84,7 @@ Tiga metode umum yang di gunakan dalam memberikan parameter pada sistem operasi.
 
 ### Jenis System Calls
 
-1.Kontrol Proses
+1. Kontrol Proses
 
    System calls yang berhubungan dengan kontrol proses antara lain ketika penghentian pegeksekusian program. Baik secara normal (end) maupun tidak normal (abort). Selama proses dieksekusi kadang kala diperlukan untuk meload atau mengeksekusi program lain, disini diperlukan lagi suatu system calls. Juga ketika membuat sesuatu proses baru dan menghentikan sebuah proses. Ada juga system calls yang dipanggil ketika kita ingin meminta dan merubah atribut dari suatu proses.
 
@@ -98,3 +98,57 @@ MS-DOS adalah contoh dari sistem single-tasking. MS-DOS menggunakan metode yang 
  <center>2.1</center>
  <center><i>Sumber :Abraham-Silberschatz,et.al, Operating System Concepts, 10th ed 2018: halaman 70. </i></center>
 
+Barkeley Unix adalah contoh dari sistem *multi-tasking*.*Command Interpereter* masih tetap bisa dijalankan ketika program lain dieksekusi.
+
+
+#### Multi program pada *Unix*
+<p>
+ <img src="file:///F:/Kuliah%20ULM/semester%203%20ulm/S3/SISTEM%20OPERASI/eksekusimsdos.jpg"></p>
+ 2.2
+ <i>Sumber :Abraham-Silberschatz,et.al, Operating System Concepts, 10th ed 2018: halaman 71. </i>
+
+2. Manajemen Berkas
+
+    *System Calls* yang berhubungan dengan berkas sangat diperlukan. Seperti ketika kita ingin membuat atau menghapus suatu berkas. Atau ketika ingin membuka atau menutup sesuatu berkas yang telag ada, membaca berkas tersebut, dan menulis berkas itu. *System calls* juga diperlukan ketika kita ingin mengetahui atribut dari suatu berkas atau ketika kita juga ingin merubah atribut tersebut. Yang termasuk atribut berkas adalah nama berkas, jenis berkas, dan lain-lain.
+    
+    Ada juga *System calls* yang menyediakan mekanisme lain yang berhubungan dengan direktori atau sistim berkas secara keseluruhan. Jadi bukan hanya berhubungan dengan satu spesifik berkas . Contohnya menghapus suatu direktori dan lain-lain.
+    
+ 3. Manajemen Peranti
+  
+    Program yang sedang dijalankan kadang kala memerlukan tambahan sumber daya. Jika banyak pengguna yang menggunakan sistem dan jika diperlukan tambahan sumber daya maka harus meminta peranti terlebih dahulu. DAn setelah selesai penggunkannya harus dilepaskan kembali. Ketika sebuah peranti telah diminta dan dialokasikan maka peranti tersebut bisa dibaca, ditulis, atau di reposisi
+     
+     
+ 4. Informasi *Maintenance*
+ 
+    Beberapa *System Calls* disediakan untuk membantu pertukaran informasi antara pengguna dan sistem operasi. Contohnya *system calls* untuk meminta dan mengatur waktu dan tanggal. Atau meminta informasi tentang sistem itu sendiri, seperti jumlah pengguna, jumlah memori dan disk yang masih bisa digunakan, dan lain-lain. Ada juga *system calls* untuk meminta informasi tentang proses yang disimpan oleh sistem dan system calls untuk merubah (reset) informasi tersebut.
+    
+ 5. Komunikasi
+ 
+    Dua model komunikasi
+    + *message-passing*
+    
+        pertukaran informasi dilakukan melalui fasilitas komunikasi antar proses yang sediakan oleh sistem operasi.
+        
+    + *shared-memory*
+    
+        Proses menggunakan memori yang bisa digunakan oleh berbagai proses untuk pertukaran informasi dengan membaca dan menulis data pada memori tersebut.
+        
+   #### Mekanisme komunikasi
+   
+   <p>
+ <img src="file:///F:/Kuliah%20ULM/semester%203%20ulm/S3/SISTEM%20OPERASI/mekanismekomunikasi.png"></p>
+ 
+Dalam *message-passing*, sebelum komunikasi dapat dilakukan harus dibangun dulu sebuah koneksi. Untuk itu diperlukan suatu *system calls* dalam pengaturan koneksi tersebut , baik dalam menghubungkan koneksi tersebut maupun dalam memutuskan koneksi tersebut ketika komunikasi sudah selesai dilakukan. Juga diperlukan suatu *system calls* untuk membaca dan menulis pesan (*message*)agar pertukaran informasi dapat dilakukan.
+
+
+#### System Program
+
+*system program* menyediakan lingkungan yang memungkinkan pengembangan dan eksekusi berjalan dengan baik.
+
+Dapat dikategorikan :
+    + Manajemen/manipulasi Berkas
+        Membuat,menghapus,copy,rename,print,memanipulasi berkas dan direktori
+        
+    + Informasi status
+    
+        Beberapa program meminta informasi tentang tanggal,jam,jumlah memori dan disk yang tersedia, jumlah pengguna dan informasi lain yang sejenis.
