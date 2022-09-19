@@ -200,4 +200,17 @@ Mengatur alokasi prosesor, pertukaran antar proses ketika interupsi terjadi atau
  • Lapisan 1</p>
  Mengalokasikan ruang untuk proses di memori utama dan pada 512 kilo word drum yang digunakan untuk menahan bagian proses ketika tidak ada ruang dimemori utama</p>
 • Lapisan 2</p>
-Menangani komunikasi antara masing-masing proses dan *operator console*. Pada lapis ini masing-masing proses secara efektif memiliki *opertor console* sendiri.
+Menangani komunikasi antara masing-masing proses dan *operator console*. Pada lapis ini masing-masing proses secara efektif memiliki *opertor console* sendiri.</p>
+• Lapisan 3</p>
+Mengatur peranti I/O dan menampang informasi yang mengalir dari dan ke proses tersebut.</p>
+• Lapisan 4</p>
+Tempat program pengguna. Pengguna tidak: perlu memikirkan tentang proses. memori, *console*, atau manajemen I/O.</p>
+
+• Lapisan 5</p>
+Merupakan operator sistem</p>
+
+Menurut Stallings, model tingkatan sistem operasi yang mengaplikasikan prinsip ini dapat dilihat pada tabel berikut, yang terdiri dari level-level dibawah ini :
+
+
+
+
