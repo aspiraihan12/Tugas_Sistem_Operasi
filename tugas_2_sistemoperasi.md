@@ -173,4 +173,23 @@ sebuah sistem yang besar dan kompleks seperti sistem operasi modern harus diatur
 <li>Pendekatan Terlapis</li>
 <li>Mikrokernel</li>
 </ul>
+
+Sedangkan menurut William Stallings, kita bisa memandang sistem sebagaui seperangkat lapisan. Tiap lapisan menampilkan bagian fungsi yang dibutuhkan oleh sistem operasi. Bagian yang terletak pada lapisan yang lebih rendah akan menampilkan fungsi yang lebih primitif dan menyimpan detail fungsi tersebut.
+
+
+### Struktur Sederhana
+Banyak sistem yang tidak terstruktur dengan baik, sehingga sistem operasi seperti ini dimulai dengan sistem yang lebih kecil, sederhana, dan terbatas. Kemudian berkembang dengan cakupan yang original. Contoh sistem seperti ini adalah MS-DOS, yang disusun untuk mendukung fungsi yang banyak pada ruang yang sedikit karena keterbatasan perangkat keras untuk menjalankannya.
+
+Contoh sistem lainnya adalah UNIX. yang terdiri dari dua bagian yang terpisah, yaitu Kernel dan program sistem. Kerne/ selanjutnya dibagi dua bagian, yaitu antarmuka dan device drivers. Kernel mendukung sistem berkas, penjadwalan CPU, manajemen memori, dan fungsi sistem operasi lainnya melalui *system calls*.
+### Pendekatan Terlapis
+Sistem operasi dibagi menjadi sejumlah lapisan yang masing-masing dibangun diatas lapisan yang lebih rendah. Lapisan yang lebih rendah menyediakan layanan untuk lapisan yang lebih tinggi. Lapisan yang paling bawah adalah perangkat keras, dan yang paling tinggi adalah *user-interface*.
+
+#### Lapisan pada Sistem Operasi
   
+  <p>
+ <img src="file:///F:/Kuliah%20ULM/semester%203%20ulm/S3/SISTEM%20OPERASI/lapisan.png">
+ Sumber: Silberschatz,et.al, Operating System Concepts.6th e, .2003, New York:John Wiley & Son.Inc, halainan 77</p>
+ 
+ 
+ Sebuah lapisan adalah implementasi dari objek abstrak yang merupakan enkapsulasi dari data dan operasi yang bisa memanipulasi data tersebut. Keuntungan utama dengan sistem in adalab modularitas. Pendekatan ini mempermudah *debug* dan verifikasi sistem.
+ Lapisan pertama bisa di debug tapa mengganggu sistem yang lain karena hanya menggunakan perangkat keras dasar untuk implementasi fungsinya. Bila terjadi error saat debugging sejumlah lapisan, error pasti pada lapisan yang baru saja di debug,. karena lapisan dibawahnya sudah di debug.Sedangkan menurut Tanenbaum dan Woodhull, sister terlapis terdiri dari enam lapisan, yaitu :
