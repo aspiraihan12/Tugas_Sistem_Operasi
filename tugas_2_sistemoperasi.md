@@ -192,4 +192,12 @@ Sistem operasi dibagi menjadi sejumlah lapisan yang masing-masing dibangun diata
  
  
  Sebuah lapisan adalah implementasi dari objek abstrak yang merupakan enkapsulasi dari data dan operasi yang bisa memanipulasi data tersebut. Keuntungan utama dengan sistem in adalab modularitas. Pendekatan ini mempermudah *debug* dan verifikasi sistem.
- Lapisan pertama bisa di debug tapa mengganggu sistem yang lain karena hanya menggunakan perangkat keras dasar untuk implementasi fungsinya. Bila terjadi error saat debugging sejumlah lapisan, error pasti pada lapisan yang baru saja di debug,. karena lapisan dibawahnya sudah di debug.Sedangkan menurut Tanenbaum dan Woodhull, sister terlapis terdiri dari enam lapisan, yaitu :
+ Lapisan pertama bisa di debug tapa mengganggu sistem yang lain karena hanya menggunakan perangkat keras dasar untuk implementasi fungsinya. Bila terjadi error saat debugging sejumlah lapisan, error pasti pada lapisan yang baru saja di debug,. karena lapisan dibawahnya sudah di debug.Sedangkan menurut Tanenbaum dan Woodhull, sister terlapis terdiri dari enam lapisan, yaitu :</p>
+ 
+ • Lapisan 0</p>
+Mengatur alokasi prosesor, pertukaran antar proses ketika interupsi terjadi atau waktu babis. Lapisan ini mendukung dasar multi-programming pada CPU</p>
+
+ • Lapisan 1</p>
+ Mengalokasikan ruang untuk proses di memori utama dan pada 512 kilo word drum yang digunakan untuk menahan bagian proses ketika tidak ada ruang dimemori utama</p>
+• Lapisan 2</p>
+Menangani komunikasi antara masing-masing proses dan *operator console*. Pada lapis ini masing-masing proses secara efektif memiliki *opertor console* sendiri.
