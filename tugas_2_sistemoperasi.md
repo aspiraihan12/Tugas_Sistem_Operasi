@@ -216,3 +216,63 @@ Menurut Stallings, model tingkatan sistem operasi yang mengaplikasikan prinsip i
 <p>
  <img src="file:///F:/Kuliah%20ULM/semester%203%20ulm/S3/SISTEM%20OPERASI/tabelso..png">
 </p>
+
+• Level 1</p>
+terdiri dari sirkuit elektronik dimana objek yang ditangani adalah *register memory cell*, dan gerbang logika operasi pada objek ini seperti membersihkan register atau membaca lokasi memori</p>
+• Level 2</p>
+Pada level ini adalah set intruksi pada *prosessor*. Operasinya adalah instruksi bahasa-mesin, seperti menambah, mengurangi, *load* *store*.</p>
+• Level 3</p>
+Tambahan konsep prosedur atau subrutin ditambah operasi *call* atau return.</p>
+• Level 4</p>
+Mengenalkan interupsi yang menyebabkan prosesor harus menyimpan perintah yang baru dijalankan dan memanggil rutin penanganan intrupsi</p>
+
+Empat level pertama bukan bagian sistem operasi tetapi bagian perangkat keras. Meskipun demikian beberapa elemen sistem operasi mulai tampil pada level-level ini, seperti rutin penanganan interupsi Pada level 5, kita mulai masuk kebagian sistem operasi dan konsep nya berhubungan dengan *multi-programming*.</p>
+
+• Level 5</p>
+Level ini mengenalkan ide proses dalam mengeksekusi program. Kebutuhan-kebutuhan dasar pada sistem operasi untuk mendukung proses ganda termasuk kemampuan *mesuspend* dan *meresume* proses. Hal ini membutuhkan register perangkat keras untuk menyimpan agar eksekusi bisa ditukar antara satu proses ke proses lainnva.
+• Level 6</p>
+Mengatasi penyimpanan sekunder dari komputer, Level in untuk menjadwalkan operasi dan menanggapi permintaan proses dalan melengkapi suatu proses.</p>
+• Level 7</p>
+Membuat alamat logis untuk proses. Level ini mengatur alamat virtual ke dalam blok yang bisa dipindahkan antara memori utama dan memori tambahan. Cara-cara yang sering dipakai adalah menggunakan ukuran halaman yang tetap. menggunakan segmen sepanjang variabelnya, dan menggunakan cara keduanya Ketika blok yang dibutuhkan tidak ada dimemori utama, alamat logis pada level ini meminta transfer dari level 6.</p>
+
+Sampai point ini, sistem operasi mengatasi sumber daya dari prosesor tunggal. Mulai level 8. sistem operasi mengatasi objek eksternal seperti peranti bagian luar, jaringan, dan sisipan komputer kepada jaringan.</p>
+• Level 8</p>
+Mengatasi komunikasi informasi dan pesan-pesan antar proses. Dimana pada level 5 disediakan mekanisme penanda yang kuno yang memungkinkan untuk sinkronisasi proses, pada level ini mengatasi pembagian informasi yang lebih banyak. Salah satu peranti yang paling sesuai adalah *pipe* (pipa) yang menerima output suatu proses dan memberi input ke proses lain.
+• Level 9</p>
+Mendukung penyimpanan jangka panjang yang disebut dengan berkas. Pada level ini, data dari penyimpanan sekunder ditampilkan pada tingkat abstrak, panjang variabel yang terpisah. Hal ini bertentangan tampilan yang berorientasikan perangkat keras dari penyimpanan sekunder</p>
+• Level 10</p>
+Menyediakan akses ke peranti eksternal menggunakan antarmuka standar.</p>
+• Level 11</p>
+Bertanggung jawab mempertahankan hubungan antara internal dan eksternal teurifier dari sumber daya dan objek sistem. Eksternal identifier adalah nama yang bisa dimanfaatkan ole aplikasi atau pengguna. Internal idenrifier adalabi alamat atau indiast lain yang bisa digunakan oleh level yang lebih rendah untuk meletakkan dan mengontrol objek</p>
+• Level 12</p>
+Menyediakan suatu fasilitator yang penuh tampilan untuk mendukung proses. Hal ini merupakan lanjutan dari yang telah disediakan pada level 5. Pada level 12, semua info yang dibutuhkan untuk manajemen proses dengan berurutan disediakan, termasuk: alamat virtual di proses, daftar objek dan proses yang berinteraksi dengan proses tersebut serta batasan interaksi tersebut, parameter yang harus dipenuhi proses saat pembentukan, dan karakteristik lain yang mungkin digunakan sistem operasi untuk mengontrol proses.</p>
+• Level 13</p>
+Menyediakan antarmuka dari sistem operasi dengan pengguna yang dianggap sebagai *shell* atau dinding karena memisahkan pengguna dengan sistem operasi dan menampilkan sistem operasi dengan sederhana sebagai kumpulan servis atau pelayanan.</p>
+
+Dari ketiga sumber diatas dapat kita simpulkan bahwa lapisan sistem operasi secara umum terdiri atas 4 bagian yaitu:</p>
+
+1. Perangkat keras</p>
+lebih berhubungan kepada perancang sistem. Lapisan mencakup lapisan 0 dan 1 menurut Tanebaum, dan level 1 sampai dengan level 4 menurut Stallings. 
+
+2. Sistem operasi
+
+    lebih berhubungan dengan programmer. Lapisan ini mencakup lapisan 2 menurut Tanebaum, dan level 5 sampai dengan level 7 menurut Stallings.
+
+3. Kelengkapan 
+
+    lebih berhubungan kepada programmer. Lapisan ini mencakup lapisan 3 menurut Tanebaum, dan level 8 sampai dengan 11 menuru Stallings.
+
+4. Program aplikasi
+
+    lebih berhubungan kepada pengguna aplikasi komputer. Lapisan ini mencakup lapisan 4 dan lapisan 5 menurut Tanebaum, dan level 12 dan 13 menurut Stalling</p>
+    
+ <p><img src="file:///F:/Kuliah%20ULM/semester%203%20ulm/S3/SISTEM%20OPERASI/lapisanos.png"></p>
+ 
+ Salah satu kesulitan besar dalam sistem terlapis disebabkan karena sebuah lapisan hanya bisa menggunakan lapisan-lapisan dibawahnya, misalnya : *backing-store driver*, normalnya diatas penjadwal CPU sedangkan pada sistem yang besar, penjadwal CPU punya informasi tentang proses yang aktif yang ada di memori. Oleh karena itu, info ini harus dimasukkan dan dikeluarkan dari memori, sehingga membutuhkan backing-store driver dibawah penjadwal CPU. Kesulitan lainnya adalah paling tidak efisien dibandingkan tipe lain. Retika pengguna mengeksekusi 1/O, akan mengeksekusi lapisan I/O, lapisan manajemen memori, yang memanggil lapisan penjadwal CPU.</p>
+ 
+### Mikrokernel</p>
+Metode ini menyusun sistem operasi dengan menghapus semua komponen yang tidak esensial dari Kernel, dan mengimplementasikannya sebagai program sistem dan level pengguna. Hasilnya kerne/ yang lebih kecil. Pada umumnya mikrokernel mendukung proses dan manajemen memori yang minimal, sebagai tambahan utnuk fasilitas komnikasi.</p>
+
+Fungsi utama mikrokernel adalah mendukung fasilitas komunikasi antara program Klien dan bermacam-macam layanan yang juga berjalan di *user space*. Komunikasi yang dilakukan secara tidak langsung, didukung oleh sistem *message passing*, dengan bertukar pesan melalui mikrokernel.</p>
+
+Salah satu keuntungan mikrokernel adalah ketika layanan baru akan ditambahkan ke *user, space*, Kernel tidak perlu dimodifikasi. Kalau pun harus perubahan akan lebih sedikit. Hasil sistem operasinya lebih mudah untuk ditempatkan pada suatu desain perangkat keras ke desain lainnya. Mikrokernel juga mendukung keamanan reliabilitas lebih, karena kebanyakan layanan berjalan sebagai pengguna proses. Jika layana gagal, sistem operasi lainnya tetap terjaca. Beberapa sistem operasi yang menggunakan metode in adalah TRU 64 UNIX. MacosX. dan ONX
